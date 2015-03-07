@@ -7,10 +7,10 @@
 
 module.exports = function(price){
 
-	var price = parseFloat(price);
+    var price = parseFloat(price);
 
-	if(isNaN(price)) return false;
+    if(isNaN(price)) return false;
 
-	return parseInt(price * 1e8);
+    return parseInt(price * 1e8);
 };
 

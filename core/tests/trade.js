@@ -21,12 +21,12 @@ t.add(r2);
 
 
 setInterval(function(){
-	
-	console.log(t)
-	t.add(new Order.SellOrder("userid", 0.00000700, 1000));
-	t.add(new Order.SellOrder("userid", 0.00000600, 1000));
-	t.add(new Order.SellOrder("userid", 0.00000800, 1000));
-	t.add(new Order.SellOrder("userid", 0.00000900, 500));
-	// t.add(new Order.SellOrder("userid",  Math.random(), Math.random()))
+    
+    console.log(t)
+    t.add(new Order.SellOrder("userid", 0.00000700, 1000));
+    t.add(new Order.SellOrder("userid", 0.00000600, 1000));
+    t.add(new Order.SellOrder("userid", 0.00000800, 1000));
+    t.add(new Order.SellOrder("userid", 0.00000900, 500));
+    // t.add(new Order.SellOrder("userid",  Math.random(), Math.random()))
 },3000)
 

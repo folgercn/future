@@ -1,0 +1,21 @@
+{
+    "name": "koa",
+    "version": "0.0.1",
+    "description": "Future Bitcoin-Altcoin Exchange",
+    "repository": "akio0O/future",
+    "keywords": [
+        "Bitcoin",
+        "Altcoin"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "koa": "*",
+        
+    },
+    "devDependencies": {
+
+    },
+    "engines": {
+        "node": ">= 0.12.0"
+    }
+}

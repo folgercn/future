@@ -12,8 +12,13 @@
         "koa": "*",
         
     },
+    
     "devDependencies": {
-
+        "grunt": "*",
+        "grunt-contrib-concat": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-css": "*"
     },
     "engines": {
         "node": ">= 0.12.0"

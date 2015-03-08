@@ -1,0 +1,23 @@
+<html ng-app="future">
+<head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/future.min.css">
+    <link id="favicon" rel="shortcut icon" href="/assets/future.ico" sizes="16x16 32x32 48x48" type="image/png">
+</head>
+<body>
+    <input type="hidden" id="token" value="#crsftoken#">
+    <div class="nav">
+    </div>
+    
+    <div class="wrapper" style="min-height:500px;">
+        <div ng-view></div>
+    </div>
+    <div class="footer clearfix">
+            
+    </div>  
+    <canvas id="canvas" width="540" hidden></canvas>   
+    <script type="text/javascript" src="/js/angular.js"></script>
+    <script type="text/javascript" src="/js/future.min.js"></script>
+</body>
+</html>

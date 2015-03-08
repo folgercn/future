@@ -1,0 +1,41 @@
+
+<div class="center apply" ng-controller="applyController">
+    <div ng-show="loading">
+
+    <div class="form " ng-repeat="(step,form) in userinfo">
+        <h3 ng-if="step == 'step00'">
+            <a href="/step00">基本信息</a></h3>
+        <h3 ng-if="step == 'step01'">CVP申请信息</h3>
+        <h4 ng-if="step == 'step01'">1、出版发布 </h4>
+        <h4 ng-if="step == 'step02'">2、线下会议和培训  </h4>
+        <h4 ng-if="step == 'step03'">3、线上视频、播客、网络直播</h4>
+        <h4 ng-if="step == 'step04'">4、网站和博客</h4>
+        <h4 ng-if="step == 'step05'">5、参与Cocos论坛</h4>
+        <h4 ng-if="step == 'step06'">6、Social media 社交媒体</h4>
+        <h4 ng-if="step == 'step07'">7、在过去12个月所获得的证书、荣誉或奖励</h4>
+        <h4 ng-if="step == 'step08'">8、会议展示与参与</h4>
+        <h3 ng-if="step == 'step09'">自我介绍</h3>
+        <div class="item" ng-repeat="input in form">
+            <div ng-if="input.input[0]">
+                <span class="title">{{input.label}}:</span>
+                <span class="value"><span ng-repeat="i in input.input">{{i}}</span></span>
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        <h3>验证手机</h3>
+        <div class="item" style="padding-bottom:40px;">
+            <input type="text" style="margin-left:40px;width:90px;" ng-model="codevalue" class="form-text">
+            <a class="buttonx" href="#" ng-click="sendSMS()">{{code}}</a>
+        </div>
+    </div>
+    <div class="form">
+        <div class="pre">
+            提交资料后，后续的更改不会影响提交材料。
+        </div>
+        <div class="item" style="padding-bottom:40px;">
+            <a class="buttonx xxx" href="#" ng-click="submit()">提交资料</a>
+        </div>
+    </div>
+</div>
+</div>

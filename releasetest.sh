@@ -1,6 +1,6 @@
 rm -rf all.tar.gz
-tar -czf all.tar.gz * 
-scp -r all.tar.gz root@vpn:~/cocosdr/
+tar -czf all.tar.gz public/ routes/ models/ core/ views/
+scp -r all.tar.gz root@vpn:~/future/
 
-ssh -t  root@vpn "cd cocosdr/ && tar -zvxf all.tar.gz"
+ssh -t  root@vpn "cd future/ && tar -zvxf all.tar.gz"
 rm -rf all.tar.gz

@@ -10,8 +10,12 @@
 future.config(function($routeProvider){
     $routeProvider.
         when('/', {
-            templateUrl: '/templates/frugment/index.html',
-            title: 'future '
+            templateUrl: '/templates/index.html',
+            title: 'future'
+        }).
+        when('/BTC/:name', {
+            templateUrl: '/templates/exchange.html',
+            title: 'future'
         })
 });
 
@@ -24,7 +28,7 @@ future
       requireBase: false
     });
   })
-  .run(function($rootScope, $route, $location, $routeParams,ngProgress,navlist) {
+  .run(function($rootScope, $route, $location, $routeParams,ngProgress) {
     // gettextCatalog.currentLanguage = defaultLanguage;
     // amMoment.changeLocale(defaultLanguage);
     $rootScope.$on('$routeChangeStart', function() {
@@ -41,7 +45,6 @@ future
       $rootScope.title = $route.current.title;
       $rootScope.isCollapsed = true;
       $rootScope.currentAddr = null;
-      navlist();
       // $location.hash($routeParams.scrollTo);
       // $anchorScroll();
     });

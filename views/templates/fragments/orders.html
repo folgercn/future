@@ -1,0 +1,90 @@
+<div class="leftpanel">
+    <h3>Buy {{coin}}</h3>
+    <div class="balance">
+        Your BTC Balance is <a href="#" ng-click="completebid()">{{user.btc}}</a>
+    </div>
+    <div class="orderpanel">
+        <div class="fieldset">
+            <label for="">Amount: </label>
+            <input type="text" ng-model="buy.amount" ng-change="changebuytotal">
+        </div>
+        <div class="fieldset">
+            <label for="">Price Per {{coin}}: </label>
+            <input type="text" ng-model="buy.price" ng-change="changebuytotal">
+        </div>
+        <div class="fieldset">
+            <label for="">Total: </label>
+            <span class="text">{{(buy.price*buy.amount).toFixed(8)}} BTC</span>
+        </div>
+        <div class="fieldset">
+            <label for="">Trading Fee: </label>
+            <span class="text">0.00000000 BTC(0.00%)</span>
+        </div>
+        <div class="fieldset">
+            <label for="">Net Total: </label>
+            <span class="text">{{(buy.price*buy.amount).toFixed(8)}} BTC</span>
+        </div>
+    </div>
+    <a class="button" href="#" ng-click="process('buy')">Submit Buy Order</a>
+    <h3>Buy Orders</h3>
+    <div class="orders">
+        <ul>
+            <li class="title">
+                <span class="price">PIRCE(BTC)</span>
+                <span class="coin">{{coin}}</span>
+                <span class="btc">BTC</span>
+            </li>
+            <li class="item" ng-repeat="order in bid" ng-click="sellthis(order)">
+                <span class="price">{{order.price}}</span>
+                <span class="coin">{{order.amount}}</span>
+                <span class="btc">{{(order.price * order.amount).toFixed(8)}}</span>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<div class="rightpanel">
+    <h3>Sell {{coin}}</h3>
+    <div class="balance">
+        Your {{coin}} Balance is <a href="#" ng-click="completeask()">{{balance}}</a>
+    </div>
+    <div class="orderpanel">
+        <div class="fieldset">
+            <label for="">Amount: </label>
+            <input type="text" ng-model="sell.amount">
+        </div>
+        <div class="fieldset">
+            <label for="">Price Per {{coin}}: </label>
+            <input type="text" ng-model="sell.price">
+        </div>
+        <div class="fieldset">
+            <label for="">Total: </label>
+            <span class="text">{{(sell.price*sell.amount).toFixed(8)}} BTC</span>
+        </div>
+        <div class="fieldset">
+            <label for="">Trading Fee: </label>
+            <span class="text">0.00000000 BTC(0.00%)</span>
+        </div>
+        <div class="fieldset">
+            <label for="">Net Total: </label>
+            <span class="text">{{(sell.price*sell.amount).toFixed(8)}} BTC</span>
+        </div>
+    </div>
+    <a class="button" href="#" ng-click="process('sell')">Submit Sell Order</a>
+    <h3>Sell Orders</h3>
+    <div class="orders">
+        <ul>
+            <li class="title">
+                <span class="price">PIRCE(BTC)</span>
+                <span class="coin">{{coin}}</span>
+                <span class="btc">BTC</span>
+            </li>
+            <li class="item" ng-repeat="order in ask"  ng-click="buythis(order)">
+                <span class="price">{{order.price}}</span>
+                <span class="coin">{{order.amount}}</span>
+                <span class="btc">{{(order.price * order.amount).toFixed(8)}}</span>
+            </li>
+        </ul>
+
+    </div>
+</div>

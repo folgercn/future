@@ -1,6 +1,9 @@
+var EventEmitter = require('events').EventEmitter, 
+    k = require("kmodel"),
+    history = k.load("History");
 
 // Base from BTC
-
+var util = require('util');
 
 function Trade(name){
 
@@ -13,11 +16,32 @@ function Trade(name){
 }
 
 
+
 Trade.prototype = {
 
     add: function(order){
-
+        
+        // order.price = parseFloat(order.price);
+        // console.log(order);
         this.readylist.push(order);
+    },
+
+    success: function(order){
+
+        var h;
+
+        order.time = new Date().string();
+        order.coin = this.name;
+        order.createtime = new Date();
+
+        global.coins[this.name].lastprice = order.price;
+
+        h = new history.model(order);
+
+        h.save();
+
+        console.log(h);
+
     },
 
 
@@ -34,7 +58,7 @@ Trade.prototype = {
 
         var ask = this.ask[0];
 
-        if( ask && (order.price >= ask.price) ){
+        if( ask && (+order.price >= +ask.price) ){
             this.process(order);
         }else{
             this.addbid(order);
@@ -45,7 +69,7 @@ Trade.prototype = {
 
         var bid = this.bid[0];
 
-        if(bid && (order.price <= bid.price)){
+        if(bid && (+order.price <= +bid.price)){
             this.process(order);
         }else{
             this.addask(order);
@@ -62,17 +86,17 @@ Trade.prototype = {
             return this.ask.push(order);
         }
 
-        if(ask[0].price > order.price){
+        if(+ask[0].price > +order.price){
             return this.ask = [order].concat(ask);
         }
 
-        if(ask[0].price == order.price){
+        if(+ask[0].price == +order.price){
             return this.ask = [ask[0], order].concat(ask);
         }
 
         for(var i = 1; i < ask.length; i++){
 
-            if(ask[i].price >= order.price){
+            if(+ask[i].price >= +order.price){
                 return this.ask = (ask.slice(0, i).concat(order)).concat(ask.slice(i));
             }
         }
@@ -89,17 +113,17 @@ Trade.prototype = {
             return this.bid.push(order);
         }
 
-        if(bid[0].price < order.price){
+        if(+bid[0].price < +order.price){
             return this.bid = [order].concat(bid);
         }
 
-        if(bid[0].price == order.price){
+        if(+bid[0].price == +order.price){
             return this.bid = [bid[0], order].concat(bid.slice(1));
         }
 
         for(var i = 1; i < bid.length; i++){
 
-            if(bid[i].price <= order.price){
+            if( +bid[i].price <= +order.price){
                 return this.bid = (bid.slice(0, i).concat(order)).concat(bid.slice(i));
             }
         }
@@ -130,11 +154,13 @@ Trade.prototype = {
     },
 
     sellbid: function(order){
+
         this.trader(order, "sell");
     },
 
     trader: function(order, type){
-        var data = type == "sell" ? this.bid : this.ask, newdata;
+
+        var data = type == "sell" ? this.bid : this.ask, newdata, me = this;
 
         newdata = data.filter(function(item){
 
@@ -147,25 +173,26 @@ Trade.prototype = {
                 deal.amount = order.amount;
                 deal.price = item.price;
                 deal.type  = order.type;
+                deal.userid = order.userid;
 
-                if(item.amount < order.amount){
+                if( +item.amount <  +order.amount){
                     order.amount = order.amount - item.amount;
                     deal.amount = item.amount;
-                    console.log(type + " done1",deal);
+                    me.success(deal);
                     return false;
                 }
 
-                if(item.amount == order.amount){
+                if( +item.amount ==  +order.amount){
                     order.deal = true;
-                    console.log(type + " done2",deal);
+                    me.success(deal);
                     return false;
                 }
 
-                if(item.amount > order.amount){
+                if( +item.amount >  +order.amount){
                     item.amount = item.amount -  order.amount;
-
+                    // deal.amount = 
                     order.deal = true;
-                    console.log(type + " done3",deal);
+                    me.success(deal);
                 }
             }
             return true;
@@ -185,6 +212,8 @@ Trade.prototype = {
     }
 
 };
+
+// util.inherits(Trade, EventEmitter);
 
 
 module.exports = Trade;

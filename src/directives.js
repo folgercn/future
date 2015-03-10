@@ -1,6 +1,6 @@
 
 
-cocos.directive('a', function() {
+future.directive('a', function() {
     return {
         restrict: 'E',
         link: function(scope, elem, attrs) {

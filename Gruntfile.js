@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-css');
 
     // Project Configuration
@@ -45,6 +46,13 @@ module.exports = function(grunt) {
             }
         },
 
+        less: {
+            less: {
+                src:  ['src/css/*.less'],
+                dest: 'src/css/less.css'
+            }
+        },
+
         cssmin:{
             css: {
                 src: ['public/css/future.css'],
@@ -59,7 +67,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: [ 'src/css/*'],
-                tasks: ['concat:css', 'cssmin:css']
+                tasks: ['less:less','concat:css', 'cssmin:css']
             }
         }
    

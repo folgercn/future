@@ -15,15 +15,20 @@ exports.History = function(k, opts){
 
     var History = k.create({
         
-        uid: "string",
+        userid: "string",
 
-        action: "string",
+        type: "string",
 
-        actionid: "string",
+        price: "string",
 
-        actionname: "string",
+        amount: "string",
 
-        comment: "string"
+        coin: "string",
+
+        time: "string",
+
+        createtime: "date"
+        
 
     }, "History");
 

@@ -10,43 +10,10 @@ var future = angular.module('future',[
     'ngRoute',
     // '',
     'future.index',
-    'progress',
-    'navlist'
-
+    'progress'
 
 ]);
 
-
-
-angular.module('navlist', []).service("navlist", function(){
-
-    function current(){
-        var pathname = location.pathname;
-        var classname = pathname.indexOf("step") == 1 ? "info" : "";
-        classname = pathname == "/apply" ?  "apply" : classname;
-        classname = pathname == "/progress" ? "progress" : classname;
-        classname = pathname == "/admin" ? "admin" : classname;
-        classname = pathname == "/admin/accept" ? "accept" : classname;
-        classname = pathname == "/admin/refuse" ? "refuse" : classname;
-
-        return classname;
-    }
-
-    function reset(){
-        var nlist = [].slice.call(document.querySelectorAll(".navlist"),0);
-        nlist.map(function(x, y){
-
-            x.classList.remove("current");
-        });
-    }
-
-    return function(){
-        var classname = current();
-        reset();
-        if(classname)
-            document.querySelector(".nav ."+classname).classList.add("current");
-    };
-});
 
 angular.module('progress', []).service("ngProgress", function(){
 

@@ -1,0 +1,34 @@
+
+
+<div class="market">
+    
+    <h3>My History</h3>
+    <div class="history">
+        
+        <ul>
+
+            <li class="title">
+                <span>TIME</span>
+                <span>TYPE</span>
+                <span>PRICE(BTC)</span>
+                <span>{{coin}}</span>
+                <span>BTC</span>
+            </li>
+
+            <li class="item" ng-repeat="h in myhis">
+                <span>{{h.time}}</span>
+                <span>{{h.type.toUpperCase()}}</span>
+                <span>{{h.price}}</span>
+                <span>{{h.amount}}</span>
+                <span>{{(h.price * h.amount).toFixed(8)}}</span>
+            </li>
+            
+        </ul>
+
+
+    </div>
+
+</div>
+
+
+

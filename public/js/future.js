@@ -229,11 +229,15 @@ future.config(function($routeProvider){
     $routeProvider.
         when('/', {
             templateUrl: '/templates/index.html',
-            title: 'future'
+            title: 'Future'
         }).
         when('/BTC/:name', {
             templateUrl: '/templates/exchange.html',
-            title: 'future'
+            title: 'Future'
+        }).
+        when('/signup', {
+            templateUrl: '/templates/signup.html',
+            title: 'Signup | Future'
         })
 });
 

@@ -55,3 +55,9 @@ angular.module('progress', []).service("ngProgress", function(){
 });
 
 angular.module('future.index', []);
+
+var errorcb = function(){
+    alert("server error");
+};
+
+

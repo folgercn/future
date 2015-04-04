@@ -117,7 +117,7 @@ angular.module("future.index").controller('exchangeController', function($scope,
 
     }
 
-    setInterval(update, 1000);
+    setInterval(update, 4000);
 });
 
 

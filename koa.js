@@ -5,7 +5,7 @@ var koa = require('koa');
 var app = koa();
 var k = require("kmodel");
 var config = require("./config.js");
-
+var middleware = require("./middleware");
 
 var mount = require('koa-mount');
 var session = require('koa-session');
@@ -27,6 +27,7 @@ app.use(session({secret: config.hash}));
 csrf(app);
 
 app.use(csrf.middleware);
+app.use(middleware);
 
 app.use(koaBody({
     formLimit:100 * 1024 * 1024,

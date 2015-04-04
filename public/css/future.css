@@ -16,6 +16,12 @@ body li {
   margin: 0;
   padding: 0;
 }
+body input.text {
+  border: 1px solid #eee;
+  outline: none;
+  padding: 3px 3px;
+  line-height: 20px;
+}
 body .nav {
   background: #eee;
   background: #f2f2f2;

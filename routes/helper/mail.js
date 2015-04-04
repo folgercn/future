@@ -10,13 +10,15 @@ var smtpTransport = require('nodemailer-smtp-transport');
 var transporter = nodemailer.createTransport(smtpTransport(mailcfg));
 
 
-module.exports = function(to, title, html, callback){
+module.exports = function(to, title, html){
 
-    transporter.sendMail({
-        from: mailcfg.support,
-        to: to,
-        subject: data.title,
-        html: data.content
-    }, callback);
-}
 
+    return function(done){
+        transporter.sendMail({
+            from: mailcfg.support,
+            to: to,
+            subject: title,
+            html: html
+        }, done);
+    }
+};

@@ -165,6 +165,10 @@ Trade.prototype = {
         newdata = data.filter(function(item){
 
             if(order.deal) return true;
+            
+            // 自己的单子不处理
+
+            if(item.userid == order.userid) return true;
 
             if( (type == "sell" && item.price >= order.price) || 
                 (type == "buy" && item.price <= order.price)){
@@ -173,6 +177,8 @@ Trade.prototype = {
                 deal.amount = order.amount;
                 deal.price = item.price;
                 deal.type  = order.type;
+                deal.to    = type == "buy" ? order.userid : item.userid;
+                deal.from  = type == "buy" ? item.userid : order.userid;
                 deal.userid = order.userid;
 
                 if( +item.amount <  +order.amount){

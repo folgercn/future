@@ -11,6 +11,7 @@
 * redis
 * mongodb
 * docker 隔离钱包
+
 ## 技术栈
 * socket.io
 * koa
@@ -21,14 +22,14 @@
 * success => client
 * failed  => as order => client
 
-## bitcoin deposit 
+## Bitcoin deposit 
 
 * generate 100k Address	
 * get insight API && blockchain info 
 * get desposit info
 * deposit success
 
-## bitcoin withdraw 
+## Bitcoin withdraw 
 
 * Security Client get withdraw list
 * get all balance info && trade info

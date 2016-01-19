@@ -22,11 +22,12 @@ app.keys = [ config.sessioncode, 'author aki'];
 app.use(staticserver(__dirname+'/public/'));
 app.use(staticserver(__dirname+'/views/'));
 
+session(app,{secret: config.hash})
 
-app.use(session({secret: config.hash}));
-csrf(app);
+// app.use();
+// csrf(app);
 
-app.use(csrf.middleware);
+// app.use(csrf.middleware);
 app.use(middleware);
 
 app.use(koaBody({

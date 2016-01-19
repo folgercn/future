@@ -1,26 +1,35 @@
 {
-    "name": "koa",
-    "version": "0.0.1",
-    "description": "Future Bitcoin-Altcoin Exchange",
-    "repository": "akio0O/future",
-    "keywords": [
-        "Bitcoin",
-        "Altcoin"
-    ],
-    "license": "MIT",
-    "dependencies": {
-        "koa": "*"
-        
-    },
-    
-    "devDependencies": {
-        "grunt": "*",
-        "grunt-contrib-concat": "*",
-        "grunt-contrib-uglify": "*",
-        "grunt-contrib-watch": "*",
-        "grunt-css": "*"
-    },
-    "engines": {
-        "node": ">= 0.12.0"
-    }
+  "name": "koa",
+  "version": "0.0.1",
+  "description": "Future Bitcoin-Altcoin Exchange",
+  "repository": "akio0O/future",
+  "keywords": [
+    "Bitcoin",
+    "Altcoin"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "kmodel": "*",
+    "koa": "*",
+    "koa-body": "*",
+    "koa-csrf": "*",
+    "koa-mount": "*",
+    "koa-router": "*",
+    "koa-session": "*",
+    "koa-static": "*",
+    "mailgun": "^0.5.0",
+    "nodemailer": "^2.0.0",
+    "nodemailer-smtp-transport": "^2.0.0",
+    "xss": "*"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-css": "*"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
+  }
 }

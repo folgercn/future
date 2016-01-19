@@ -24,7 +24,6 @@ future.config(function($routeProvider){
 });
 
 
-
 future
   .config(function($locationProvider) {
     $locationProvider.html5Mode({

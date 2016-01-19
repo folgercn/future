@@ -19,6 +19,9 @@ exports.process = function(self){
 
         });
 
+
+        // return done(null, false);
+
         if(self.session.user == null && c) {
             done(null,{status: 1, msg: "not login"});
         }else{
